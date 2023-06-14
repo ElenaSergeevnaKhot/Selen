@@ -24,12 +24,7 @@ public class Mbank {
     }
 
     @BeforeEach
-    void setUp() {
-        ChromeOptions options =new ChromeOptions();
-        options.addArguments("--disable-dev-shm-usage");
-        options.addArguments("--no-sandbox");
-        options.addArguments("--headless");
-        driver = new ChromeDriver(options);
+    void setUp() { driver = new ChromeDriver();
 
     }
 
@@ -44,10 +39,10 @@ public class Mbank {
         List<WebElement> inputs = driver.findElements(By.tagName("input"));
         inputs.get(0).sendKeys("Иванов Василий");
         inputs.get(1).sendKeys("+79856239080");
-        driver.findElement(By.tagName("checkbox__box")).click();
+        driver.findElement(By.className("checkbox__box")).click();
         driver.findElement(By.tagName("button")).click();
         String expected = "Ваша заявка успешно отправлена! Наш менеджер свяжется с вами в ближайшее время.";
-        String actual = driver.findElement(By.tagName("p")).getText().trim();
+        String actual = driver.findElement(By.className("alert-success")).getText().trim();
         assertEquals(expected, actual);
 
     }
