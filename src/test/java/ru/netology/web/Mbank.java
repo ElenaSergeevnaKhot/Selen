@@ -1,6 +1,7 @@
 package ru.netology.web;
 
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -19,12 +20,17 @@ public class Mbank {
     private WebDriver driver;
 
     @BeforeAll
-    static void setUpAll() {
-        System.setProperty("driver.chromedriver", "./drivers/win/chromedriver");
+    public static void setupAll() {
+        WebDriverManager. chromedriver().setup();
     }
 
     @BeforeEach
     void setUp() { driver = new ChromeDriver();
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--disable-dev-shm-usage");
+        options.addArguments("--no-sandbox");
+        options.addArguments("--headless");
+        driver = new ChromeDriver(options);
 
     }
 
@@ -35,15 +41,15 @@ public class Mbank {
     }
     @Test
     void shouldTestV1() {
-        driver.get("http://localhost:9999/");
-        List<WebElement> inputs = driver.findElements(By.tagName("input"));
-        inputs.get(0).sendKeys("Иванов Василий");
+        driver.get("http://0.0.0.0:9999");
+        List<WebElement> inputs = driver.findElements(By.className("input__control"));
+        inputs.get(0).sendKeys("Елена");
         inputs.get(1).sendKeys("+79856239080");
         driver.findElement(By.className("checkbox__box")).click();
         driver.findElement(By.tagName("button")).click();
-        String expected = "Ваша заявка успешно отправлена! Наш менеджер свяжется с вами в ближайшее время.";
-        String actual = driver.findElement(By.className("alert-success")).getText().trim();
-        assertEquals(expected, actual);
+        String text = driver.findElement(By.className("alert-success")).getText();
+
+        assertEquals("Ваша заявка успешно отправлена! Наш менеджер свяжется с вами в ближайшее время.", text.trim());
 
     }
 }
