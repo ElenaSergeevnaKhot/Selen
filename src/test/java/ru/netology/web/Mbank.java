@@ -21,7 +21,7 @@ public class Mbank {
 
     @BeforeAll
     public static void setupAll() {
-        WebDriverManager. chromedriver().setup();
+        WebDriverManager.chromedriver().setup();
     }
 
     @BeforeEach
@@ -40,10 +40,10 @@ public class Mbank {
         driver = null;
     }
     @Test
-    void shouldTestV1() {
+    void shouldTest() {
         driver.get("http://0.0.0.0:9999");
         List<WebElement> inputs = driver.findElements(By.className("input__control"));
-        inputs.get(0).sendKeys("Елена");
+        inputs.get(0).sendKeys("Иванов Иван");
         inputs.get(1).sendKeys("+79856239080");
         driver.findElement(By.className("checkbox__box")).click();
         driver.findElement(By.tagName("button")).click();

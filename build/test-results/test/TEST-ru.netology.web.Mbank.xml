@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="ru.netology.web.Mbank" tests="1" skipped="0" failures="1" errors="0" timestamp="2023-10-19T18:54:26" hostname="LAPTOP-S6IO1DB2" time="7.884">
+<testsuite name="ru.netology.web.Mbank" tests="1" skipped="0" failures="1" errors="0" timestamp="2023-10-20T09:18:45" hostname="LAPTOP-S6IO1DB2" time="7.176">
   <properties/>
-  <testcase name="shouldTestV1()" classname="ru.netology.web.Mbank" time="7.884">
-    <failure message="org.openqa.selenium.SessionNotCreatedException: Could not start a new session. Response code 500. Message: session not created: This version of ChromeDriver only supports Chrome version 114&#10;Current browser version is 118.0.5993.70 with binary path C:\Program Files (x86)\Google\Chrome\Application\chrome.exe &#10;Host info: host: 'LAPTOP-S6IO1DB2', ip: '192.168.0.103'&#10;Build info: version: '4.8.3', revision: 'e5e76298c3'&#10;System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.17'&#10;Driver info: org.openqa.selenium.chrome.ChromeDriver&#10;Command: [null, newSession {capabilities=[Capabilities {browserName: chrome, goog:chromeOptions: {args: [--remote-allow-origins=*], extensions: []}}], desiredCapabilities=Capabilities {browserName: chrome, goog:chromeOptions: {args: [--remote-allow-origins=*], extensions: []}}}]" type="org.openqa.selenium.SessionNotCreatedException">org.openqa.selenium.SessionNotCreatedException: Could not start a new session. Response code 500. Message: session not created: This version of ChromeDriver only supports Chrome version 114
-Current browser version is 118.0.5993.70 with binary path C:\Program Files (x86)\Google\Chrome\Application\chrome.exe 
+  <testcase name="shouldTest()" classname="ru.netology.web.Mbank" time="7.176">
+    <failure message="org.openqa.selenium.SessionNotCreatedException: Could not start a new session. Response code 500. Message: session not created: This version of ChromeDriver only supports Chrome version 114&#10;Current browser version is 118.0.5993.89 with binary path C:\Program Files (x86)\Google\Chrome\Application\chrome.exe &#10;Host info: host: 'LAPTOP-S6IO1DB2', ip: '192.168.0.103'&#10;Build info: version: '4.8.3', revision: 'e5e76298c3'&#10;System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.17'&#10;Driver info: org.openqa.selenium.chrome.ChromeDriver&#10;Command: [null, newSession {capabilities=[Capabilities {browserName: chrome, goog:chromeOptions: {args: [--remote-allow-origins=*], extensions: []}}], desiredCapabilities=Capabilities {browserName: chrome, goog:chromeOptions: {args: [--remote-allow-origins=*], extensions: []}}}]" type="org.openqa.selenium.SessionNotCreatedException">org.openqa.selenium.SessionNotCreatedException: Could not start a new session. Response code 500. Message: session not created: This version of ChromeDriver only supports Chrome version 114
+Current browser version is 118.0.5993.89 with binary path C:\Program Files (x86)\Google\Chrome\Application\chrome.exe 
 Host info: host: 'LAPTOP-S6IO1DB2', ip: '192.168.0.103'
 Build info: version: '4.8.3', revision: 'e5e76298c3'
 System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.17'
@@ -149,7 +149,7 @@ Command: [null, newSession {capabilities=[Capabilities {browserName: chrome, goo
   <system-err><![CDATA[SLF4J: No SLF4J providers were found.
 SLF4J: Defaulting to no-operation (NOP) logger implementation
 SLF4J: See https://www.slf4j.org/codes.html#noProviders for further details.
-Starting ChromeDriver 114.0.5735.90 (386bc09e8f4f2e025eddae123f36f6263096ae49-refs/branch-heads/5735@{#1052}) on port 29123
+Starting ChromeDriver 114.0.5735.90 (386bc09e8f4f2e025eddae123f36f6263096ae49-refs/branch-heads/5735@{#1052}) on port 31718
 Only local connections are allowed.
 Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
 ChromeDriver was started successfully.
