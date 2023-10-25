@@ -1,5 +1,6 @@
 package ru.netology.web;
 
+
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
@@ -15,23 +16,21 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-
-public class AppDriverTest {
-    private WebDriverManager driverManager;
-    private WebDriverManager driver;
+public class Mbank {
+    private WebDriver driver;
 
     @BeforeAll
     public static void setupAll() {
         WebDriverManager.chromedriver().setup();
     }
+
     @BeforeEach
-    public void setUp() {
+    void setUp() { driver = new ChromeDriver();
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--disable-dev-shm-usage");
         options.addArguments("--no-sandbox");
         options.addArguments("--headless");
         driver = new ChromeDriver(options);
-        driver.get("http://localhost:9999");
 
     }
 
@@ -39,21 +38,18 @@ public class AppDriverTest {
     void tearDown() {
         driver.quit();
         driver = null;
-
     }
-
     @Test
-    public void shouldBeSuccessfulTest() {
-        driver.findElement(By.cssSelector("[data-test-id='name'] input")). sendKeys("Иванов Иван");
-        driver.findElement(By.cssSelector("[data-test-id='phone'] input")). sendKeys("+79001234567");
-        driver.findElement(By.cssSelector("[data-test-id='agreement']")). click();
-        driver.findElement(By.cssSelector("button.button")). click();
-        var actualText = driver.findElement(By.cssSelector("[data-test-id=order-success")).getText().trim;
-        assertEquals(expected: "Ваша заявка успешноотправлена! Наш менеджер свяжется с вами в ближайшее время.", actualText);
+    void shouldTest() {
+        driver.get("http://0.0.0.0:9999");
+        List<WebElement> inputs = driver.findElements(By.className("input__control"));
+        inputs.get(0).sendKeys("Иванов Иван");
+        inputs.get(1).sendKeys("+79856239080");
+        driver.findElement(By.className("checkbox__box")).click();
+        driver.findElement(By.tagName("button")).click();
+        String text = driver.findElement(By.className("alert-success")).getText();
 
-
+        assertEquals("Ваша заявка успешно отправлена! Наш менеджер свяжется с вами в ближайшее время.", text.trim());
 
     }
-
-
 }
